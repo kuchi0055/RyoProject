@@ -16,4 +16,6 @@ public class SC0201Action {
     public String index(){
 		return "SC0201.jsp";
 	}
+
+    // 2017/7/29に追加する予定。
 }
