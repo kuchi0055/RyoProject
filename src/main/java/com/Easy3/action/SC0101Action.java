@@ -2,9 +2,6 @@ package com.Easy3.action;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
-//import java.util.List;
-
-
 import javax.annotation.Resource;
 
 import org.seasar.framework.container.S2Container;
@@ -14,7 +11,7 @@ import org.seasar.struts.annotation.Execute;
 import org.seasar.struts.exception.ActionMessagesException;
 
 import com.Easy3.Util.FC0105;
-//import com.Easy3.Util.FC0107;
+import com.Easy3.Util.FC0107;
 import com.Easy3.dao.TEmployeeDatasDao;
 import com.Easy3.entity.TEmployeeDatas;
 import com.Easy3.form.SC0101Form;
@@ -39,6 +36,8 @@ public class SC0101Action {
 
     /** パスワード最小値の桁数 */
     public static final Integer PASSWORD_MINLENGHT  = 8;
+
+    public String userName;
 
     /** フラグオフの"0" */
 //    private static final String FLAG_OFF = "0";
@@ -147,7 +146,7 @@ public class SC0101Action {
 //        }
 //
         // DBに接続し、IDとパスワードが存在するかどうかを確認 *（userAuthorityFlag）を追記
-    	/*TEmployeeDatas userInfo = */selectUserId(sC0101Form.getUserId(), sC0101Form.getPassword());
+    	TEmployeeDatas userInfo = selectUserId(sC0101Form.getUserId(), sC0101Form.getPassword());
 //
 //        // ユーザ管理情報の取得に失敗した場合（エラー有り）
 //        if (!errMsg.isEmpty()) {
@@ -163,8 +162,10 @@ public class SC0101Action {
 //            return ok(SC0101.render(errMsg, userId, password, attendMsg));
 //        }
 //
-//        String username = FC0107.SetKanjiUserName(userInfo.empNmKanjiLastname,
-//                userInfo.empNmKanjiName);
+        String username = FC0107.SetKanjiUserName(userInfo.empNmKanjiLastname,
+                userInfo.empNmKanjiName);
+
+        this.userName = username;
 
         // Sessionにユーザー情報を格納
 //        session("userId", userId);

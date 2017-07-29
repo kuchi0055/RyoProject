@@ -68,17 +68,17 @@
   </script>
 
   <script type="text/javascript">
-  $(window).ready(function checkAuthority() {
-    if("0"== authorityFlg){
-      // "0"システム(管理者)
-      // ボタン表示
-      document.getElementById("passwordreset-btn").style.display = "";
-    } else {
-      // 上記以外
-      // ボタン非表示
-      document.getElementById("passwordreset-btn").style.display = "none";
-    }
-  });
+//  $(window).ready(function checkAuthority() {
+//    if("0"== authorityFlg){
+//      // "0"システム(管理者)
+//      // ボタン表示
+//      document.getElementById("passwordreset-btn").style.display = "";
+//    } else {
+//      // 上記以外
+//      // ボタン非表示
+//      document.getElementById("passwordreset-btn").style.display = "none";
+//    }
+//  });
   </script>
 
   <!--[if lt IE 9]>
@@ -88,11 +88,11 @@
 
   <script type="text/javascript">
     // Android以外の場合にメニューを非表示にする判定
-    $(window).load(function checkUserAgent() {
-        if (!(@userAgent.equals("android"))) {
-            document.getElementById("beatMenu-link").style.display = "none";
-        }
-    });
+//    $(window).load(function checkUserAgent() {
+//        if (!(@userAgent.equals("android"))) {
+//            document.getElementById("beatMenu-link").style.display = "none";
+//        }
+//    });
   </script>
 </head>
 <body onload="checkAuthority() checkUserAgent()">
@@ -111,7 +111,7 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#" data-toggle="modal" data-toggle="modal" data-target="#releaseNote">リリースノート</a></li>
-            <li class="active"><a href="#">ユーザ名：@userName</a></li>
+            <li class="active"><a href="#">ユーザ名：${f:h(userName)}</a></li>
             <li><a href="/logout"><span class="glyphicon glyphicon-share"></span> ログアウト</a></li>
           </ul>
         </div>
