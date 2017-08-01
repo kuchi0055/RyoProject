@@ -2,8 +2,10 @@ package com.Easy3.action;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+
 import javax.annotation.Resource;
 
+import org.seasar.framework.beans.util.Beans;
 import org.seasar.framework.container.S2Container;
 import org.seasar.framework.container.factory.S2ContainerFactory;
 import org.seasar.struts.annotation.ActionForm;
@@ -13,8 +15,10 @@ import org.seasar.struts.exception.ActionMessagesException;
 import com.Easy3.Util.FC0105;
 import com.Easy3.Util.FC0107;
 import com.Easy3.dao.TEmployeeDatasDao;
+import com.Easy3.dto.UserInfoDto;
 import com.Easy3.entity.TEmployeeDatas;
 import com.Easy3.form.SC0101Form;
+import com.Easy3.service.LoginService;
 
 
 public class SC0101Action {
@@ -65,6 +69,9 @@ public class SC0101Action {
 	@Resource
 	@ActionForm
 	protected SC0101Form sC0101Form;
+
+	@Resource
+	protected LoginService loginService;
 
 	@Execute(validator = false)
     public String index(){
@@ -146,7 +153,14 @@ public class SC0101Action {
 //        }
 //
         // DBに接続し、IDとパスワードが存在するかどうかを確認 *（userAuthorityFlag）を追記
-    	TEmployeeDatas userInfo = selectUserId(sC0101Form.getUserId(), sC0101Form.getPassword());
+    	//TEmployeeDatas userInfo = selectUserId(sC0101Form.getUserId(), sC0101Form.getPassword());
+    	if(loginService.login(sC0101Form.getUserId())){
+    		//return "index?redirect=true";
+    	}else{
+    		throw new ActionMessagesException("DBに登録されていない", false);
+    	}
+
+
 //
 //        // ユーザ管理情報の取得に失敗した場合（エラー有り）
 //        if (!errMsg.isEmpty()) {
@@ -162,15 +176,16 @@ public class SC0101Action {
 //            return ok(SC0101.render(errMsg, userId, password, attendMsg));
 //        }
 //
-        String username = FC0107.SetKanjiUserName(userInfo.empNmKanjiLastname,
-                userInfo.empNmKanjiName);
-
-        this.userName = username;
+//        String username = FC0107.SetKanjiUserName(userInfo.empNmKanjiLastname,
+//                userInfo.empNmKanjiName);
+//
+//        this.userName = username;
 
         // Sessionにユーザー情報を格納
 //        session("userId", userId);
 //        session("userName", username);
 //        session("userFlag", userInfo.listIterator().next().userAuthority);
+
 
         // セッションタイムアウトの設定
 //        FC0106.loginSessionTimeOut(username);
@@ -332,62 +347,65 @@ public class SC0101Action {
 //     }
 //
 //
-     /**
-      * 入力パスワードのチェックするメソッドです。
-      * 入力したパスワードを暗号化して登録されているパスワードと一致するが確認する。
-      *
-      * @param userId ユーザID
-      *        password パスワード
-      * @return ユーザ情報(datas)
-      */
-     private static TEmployeeDatas selectUserId(String userId, String password) throws NoSuchAlgorithmException {
-
-    	 // ログインユーザーチェック
- 		S2Container container = S2ContainerFactory.create(PATH);
- 		container.init();
- 		TEmployeeDatasDao dao = (TEmployeeDatasDao) container.getComponent(TEmployeeDatasDao.class);
-		TEmployeeDatas tEmployeeDatas = dao.getSelectTEmployeeDatas(userId);
-
-//    	 Query<T_Employee_Datas> query = T_Employee_Datas.find.where(SQL_USERID).setParameter(INDEX1,userId).setParameter(INDEX2,FLAG_OFF);
-//    	 List<T_Employee_Datas> datas = query.findList();
-
-    	 // ユーザ情報が存在しない場合
-    	 if (tEmployeeDatas == null) {
-
-//    		 // メッセージ出力機能呼び出し
-//    		 errMsg = FC0102.getMsg("CM0013");
+//     /**
+//      * 入力パスワードのチェックするメソッドです。
+//      * 入力したパスワードを暗号化して登録されているパスワードと一致するが確認する。
+//      *
+//      * @param userId ユーザID
+//      *        password パスワード
+//      * @return ユーザ情報(datas)
+//      */
+//     private static TEmployeeDatas selectUserId(String userId, String password) throws NoSuchAlgorithmException {
 //
-//    		 // ログ出力機能呼び出し
-//    		 FC0108.setLog("CM0013", ERROR);
+//    	 // ログインユーザーチェック
+// 		S2Container container = S2ContainerFactory.create(PATH);
+// 		container.init();
+//// 		TEmployeeDatasDao dao = (TEmployeeDatasDao) container.getComponent(TEmployeeDatasDao.class);
+////		TEmployeeDatas tEmployeeDatas = dao.getSelectTEmployeeDatas(userId);
 //
-    		 throw new ActionMessagesException("DBに登録されていない", false);
-
-    		 //return tEmployeeDatas;
-    	 }
-
-    	 // 入力されたパスワードを暗号化して、DBに格納されているPWを比較する。
-    	 // 取得したユーザ情報
-//    	 T_Employee_Datas t_user = datas.iterator().next();
-
-    	 // パスワードの暗号化
-//    	 String cryptPassword = getCryptPassword(password);z
-
-//    	 // 入力パスワードとDBのパスワードを比較
-//    	 if (!cryptPassword.equals(tEmployeeDatas.encryptionPassword)) {
-
-//    		 // メッセージ出力機能呼び出し
-//    		 errMsg = FC0102.getMsg("CM0013");
+////    	 Query<T_Employee_Datas> query = T_Employee_Datas.find.where(SQL_USERID).setParameter(INDEX1,userId).setParameter(INDEX2,FLAG_OFF);
+////    	 List<T_Employee_Datas> datas = query.findList();
 //
-//    		 // ログ出力機能呼び出し
-//    		 FC0108.setLog("CM0013", ERROR);
 //
-//    		 // ユーザ情報を返却
-//    		 return datas;
-//    	 }
-
-    	 // ユーザ情報を返却
-    	 return tEmployeeDatas;
-     }
+//
+//
+////    	 // ユーザ情報が存在しない場合
+////    	 if (tEmployeeDatas == null) {
+//
+////    		 // メッセージ出力機能呼び出し
+////    		 errMsg = FC0102.getMsg("CM0013");
+////
+////    		 // ログ出力機能呼び出し
+////    		 FC0108.setLog("CM0013", ERROR);
+////
+//    		 throw new ActionMessagesException("DBに登録されていない", false);
+//
+//    		 //return tEmployeeDatas;
+////    	 }
+//
+//    	 // 入力されたパスワードを暗号化して、DBに格納されているPWを比較する。
+//    	 // 取得したユーザ情報
+////    	 T_Employee_Datas t_user = datas.iterator().next();
+//
+//    	 // パスワードの暗号化
+////    	 String cryptPassword = getCryptPassword(password);z
+//
+////    	 // 入力パスワードとDBのパスワードを比較
+////    	 if (!cryptPassword.equals(tEmployeeDatas.encryptionPassword)) {
+//
+////    		 // メッセージ出力機能呼び出し
+////    		 errMsg = FC0102.getMsg("CM0013");
+////
+////    		 // ログ出力機能呼び出し
+////    		 FC0108.setLog("CM0013", ERROR);
+////
+////    		 // ユーザ情報を返却
+////    		 return datas;
+////    	 }
+//
+//    	 // ユーザ情報を返却
+//    	 return tEmployeeDatas;
+//     }
 //
 //
 //    /**
@@ -450,17 +468,17 @@ public class SC0101Action {
 //    }
 //
 //
-//    // ログアウト
-//    public static Result logout() {
+//     // ログアウト
+//     @Execute(validator=false)
+//     public String logout(){
 //
-//        // セッションを破棄
-//        session().clear();
-//        Cache.remove("item.key");
+//         // セッションを破棄
+//     	userInfoDto.userId = null;
 //
-//        // GETパラメータをLogin画面へ渡す
-//        return ok(SC0101.render("ログアウトしました。",INDEX_BLANK,INDEX_BLANK,INDEX_BLANK));
-//    }
-//
+//         // ログイン画面へ戻る
+//     	return "/?redirect=true";
+//     }
+
     /**
      * @param password
      * @return 暗号化パスワード

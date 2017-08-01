@@ -1,8 +1,11 @@
 package com.Easy3.action;
 
 import javax.annotation.Resource;
+
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
+
+import com.Easy3.dto.UserInfoDto;
 import com.Easy3.form.SC0201Form;
 
 
@@ -17,9 +20,14 @@ public class SC0201Action {
 		return "SC0201.jsp";
 	}
 
-    // 2017/7/29に追加する予定。
-    // もう一つコメント追加
-    public void sample(){
-
-    }
+//    // ログアウト
+//    @Execute(validator=false)
+//    public String logout(){
+//
+//        // セッションを破棄
+//    	userInfoDto.userId = null;
+//
+//        // ログイン画面へ戻る
+//    	return "/?redirect=true";
+//    }
 }
