@@ -160,8 +160,6 @@ public class SC0101Action {
     		throw new ActionMessagesException("DBに登録されていない", false);
     	}
 
-
-//
 //        // ユーザ管理情報の取得に失敗した場合（エラー有り）
 //        if (!errMsg.isEmpty()) {
 //
@@ -176,10 +174,9 @@ public class SC0101Action {
 //            return ok(SC0101.render(errMsg, userId, password, attendMsg));
 //        }
 //
-//        String username = FC0107.SetKanjiUserName(userInfo.empNmKanjiLastname,
-//                userInfo.empNmKanjiName);
-//
-//        this.userName = username;
+        String username = FC0107.SetKanjiUserName(loginService.getUserInfoDto().empNmKanjiLastname,
+        		loginService.getUserInfoDto().empNmKanjiName);
+        loginService.getUserInfoDto().setUserName(username);
 
         // Sessionにユーザー情報を格納
 //        session("userId", userId);

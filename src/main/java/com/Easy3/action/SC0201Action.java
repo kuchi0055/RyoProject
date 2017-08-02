@@ -15,6 +15,9 @@ public class SC0201Action {
 	@ActionForm
 	protected SC0201Form sC0201Form;
 
+//	@Resource
+//	protected UserInfoDto userInfoDto;
+
     @Execute(validator = false)
     public String index(){
 		return "SC0201.jsp";

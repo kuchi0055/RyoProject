@@ -14,6 +14,36 @@ public class UserInfoDto implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	public String userId;
+	public String userName;
+	public String empNmKanjiLastname;
+	public String empNmKanjiName;
+
+
+	public String getEmpNmKanjiName() {
+		return empNmKanjiName;
+	}
+
+	public void setEmpNmKanjiName(String empNmKanjiName) {
+		this.empNmKanjiName = empNmKanjiName;
+	}
+
+	public String getEmpNmKanjiLastname() {
+		return empNmKanjiLastname;
+	}
+
+	public void setEmpNmKanjiLastname(String empNmKanjiLastname) {
+		this.empNmKanjiLastname = empNmKanjiLastname;
+	}
+
+
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public String getUserId() {
 		return userId;

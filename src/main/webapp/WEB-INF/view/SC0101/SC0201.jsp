@@ -111,7 +111,7 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#" data-toggle="modal" data-toggle="modal" data-target="#releaseNote">リリースノート</a></li>
-            <li class="active"><a href="#">ユーザ名：${f:h(userName)}</a></li>
+            <li class="active"><a href="#">ユーザ名：${f:h(userInfoDto.userName)}</a></li>
             <li><a href="/logout"><span class="glyphicon glyphicon-share"></span> ログアウト</a></li>
           </ul>
         </div>

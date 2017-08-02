@@ -16,6 +16,13 @@ public class LoginService {
 	@Resource
 	protected UserInfoDto userInfoDto;
 
+	public UserInfoDto getUserInfoDto() {
+		return userInfoDto;
+	}
+	public void setUserInfoDto(UserInfoDto userInfoDto) {
+		this.userInfoDto = userInfoDto;
+	}
+
 	public boolean login(String userId) {
 		TEmployeeDatas tEmployeeDatas = tEmployeeDatasDao.getSelectTEmployeeDatas(userId);
         if(tEmployeeDatas == null){
@@ -28,5 +35,7 @@ public class LoginService {
     public boolean isLoginOK(){
         return userInfoDto.userId == null ? false : true;
     }
+
+
 
 }
