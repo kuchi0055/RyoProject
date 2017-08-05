@@ -1,0 +1,157 @@
+.body {
+    color:#333;
+    font-size: none;
+}
+
+div#header {
+    background-color: #3B5998;
+    height: 78px;
+    width: 100%;
+    min-width: 100px;
+    clear: both;
+    margin: 0px 0px 0px 0px;
+    color:#fff;
+    padding:0px;
+}
+
+div#footer {
+    background-color: #3B5998;
+    height: 38px;
+    width: 100%;
+    min-width: 100px;
+    clear: both;
+    color:#fff;
+    text-align:right;
+}
+
+div#head-logo {
+    color:#fff;
+    font-weight:bold;
+    min-width: 80px;
+    margin:0px;
+    padding:6px 5px 3px 50px;
+    font-size:42px;
+}
+
+div#head-user {
+    color:#fff;
+    margin:0px;
+    font-size:14px;
+    padding:30px 0px 3px 0px;
+    text-decoration:underline;
+}
+
+div#head-logout {
+    color:#fff;
+    font-weight:bold;
+    margin:0px;
+    padding:15px 8px 3px 0px;
+}
+
+div#xs-user {
+    width: 100%;
+    min-width: 100px;
+    clear: both;
+    margin: 0px 10px 0px 0px;
+    color:#333;
+    font-size:14px;
+    padding:0px 10px 0px 0px;
+    text-align:right;
+}
+
+div#listCount {
+    color: #333;
+    clear: both;
+    margin: 10px 5px 0px 0px;
+    text-align:right;
+    padding:0px;
+}
+
+div#menu-btn {
+    margin: 10px 5px 0px 15px;
+    padding: 0px;
+}
+div#btn-event1 {
+	position: absolute;
+    right: 80px;
+    bottom: 25px
+}
+
+div#btn-event2 {
+    position: absolute;
+    right: 20px;
+    bottom: 25px
+}
+
+div#btn-user {
+    position: absolute;
+    right:15px;
+    bottom: 30px
+}
+
+div#scr-title {
+    font-size:36px;
+    font-weight:bold;
+    margin:35px 0px 5px 16px;
+    padding:0;
+    text-align:center;
+}
+
+div#btn-1 {
+    margin: 10px 5px 10px 1025px;
+    padding:0px;
+}
+
+div#btn-2 {
+    margin: -37px 50px 10px 960px;
+
+}
+
+div#alert {
+    color: #FF0000;
+}
+
+img#top-logo {
+	margin: 75px 0px 0px 0px;
+}
+
+p#produced {
+    float: right;
+}
+
+table#user-input {
+    width: 100%; /* テーブルの幅 */
+}
+
+table.user-input {
+    width: 80%; /* テーブルの幅 */
+}
+
+th#user-input {
+    padding: 18px 8px 10px 8px; /* 見出しセルのパディング（上下、左右） */
+    text-align: left;
+    line-height: 130%;
+}
+
+td#user-input {
+    padding: 10px 5px 7px; /* データセルのパディング（上、左右、下） */
+    background-color: #ffffff; /* データセルの背景色 */
+}
+
+td.user-input {
+    background-color: #ffffff; /* データセルの背景色 */
+}
+
+div#box1{
+	width:600px;
+	height:150px;
+	padding:10px 5px 15px 120px;
+}
+
+label.description {
+    font-size:18px;
+}
+
+label.text-form {
+    margin: 9px 0px 0px 0px;
+}
