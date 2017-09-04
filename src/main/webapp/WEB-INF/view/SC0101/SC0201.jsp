@@ -95,8 +95,8 @@
 //    });
   </script>
 </head>
-<body onload="checkAuthority() checkUserAgent()">
-  <s:form method="GET">
+<body onload="checkAuthority()">
+  <form method="GET" name="form1">
     <div class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
@@ -112,12 +112,12 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#" data-toggle="modal" data-toggle="modal" data-target="#releaseNote">リリースノート</a></li>
             <li class="active"><a href="#">ユーザ名：${f:h(userInfoDto.userName)}</a></li>
-            <li><a href="/logout"><span class="glyphicon glyphicon-share"></span> ログアウト</a></li>
+            <li><html:link page="/SC0201/logout" onclick="document.form1.submit();"><span class="glyphicon glyphicon-share"></span> ログアウト</html:link></li>
           </ul>
         </div>
       </div>
     </div>
-  </s:form>
+  </form>
 
   <div class="modal fade" id="releaseNote" tabindex="-1">
     <div class="modal-dialog">
@@ -239,7 +239,7 @@
             <div class="panel-heading">イベント管理</div>
             <div class="panel-body">
               <ul class="nav nav-pills nav-stacked">
-                <li><a href="/event">イベント参照</a></li>
+                <li><a href="SC0301">イベント参照</a></li>
               </ul>
             </div>
           </div>

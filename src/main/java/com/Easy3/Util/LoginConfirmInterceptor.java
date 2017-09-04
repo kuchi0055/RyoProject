@@ -6,7 +6,6 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.seasar.framework.aop.interceptors.AbstractInterceptor;
 import org.seasar.struts.annotation.Execute;
 
-import com.Easy3.dto.UserInfoDto;
 import com.Easy3.service.LoginService;
 
 public class LoginConfirmInterceptor extends AbstractInterceptor{

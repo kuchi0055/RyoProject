@@ -36,6 +36,7 @@ public class LoginService {
         return userInfoDto.userId == null ? false : true;
     }
 
-
-
+    public String logout(){
+    	return "/SC0101/SC0101.jsp";
+    }
 }

@@ -5,18 +5,12 @@ import java.sql.SQLException;
 
 import javax.annotation.Resource;
 
-import org.seasar.framework.beans.util.Beans;
-import org.seasar.framework.container.S2Container;
-import org.seasar.framework.container.factory.S2ContainerFactory;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
 import org.seasar.struts.exception.ActionMessagesException;
 
 import com.Easy3.Util.FC0105;
 import com.Easy3.Util.FC0107;
-import com.Easy3.dao.TEmployeeDatasDao;
-import com.Easy3.dto.UserInfoDto;
-import com.Easy3.entity.TEmployeeDatas;
 import com.Easy3.form.SC0101Form;
 import com.Easy3.service.LoginService;
 
@@ -64,7 +58,7 @@ public class SC0101Action {
     /** ログレベル */
 //    private static final String ERROR = "ERROR";
 
-    private static final String PATH = "com/Easy3/dao/TEmployeeDatasDao.dicon";
+//    private static final String PATH = "com/Easy3/dao/TEmployeeDatasDao.dicon";
 
 	@Resource
 	@ActionForm
