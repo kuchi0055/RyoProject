@@ -48,7 +48,9 @@
      <initMethod name="addCustomizer">
 		<arg>
 			<component class="org.seasar.framework.container.customizer.AspectCustomizer">
-				<property name="interceptorName">"LoginConfirmInterceptor"</property>
+				<property name="interceptorName">"loginConfirmInterceptor"</property>
+                <property name="pointcut">".*"</property>
+                <property name="useLookupAdapter">true</property>
 
 				<!-- 処理の対象外ににしたいAction(これ以外が対象になる)-->
 				<initMethod name="addIgnoreClassPattern">

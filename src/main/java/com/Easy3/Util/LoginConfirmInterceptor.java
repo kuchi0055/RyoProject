@@ -22,7 +22,7 @@ public class LoginConfirmInterceptor extends AbstractInterceptor{
 	public Object invoke(MethodInvocation invocation) throws Throwable {
 		// TODO 自動生成されたメソッド・ス
 		// 両方の条件を満たしていない場合、Loginページへ飛ばす。
-				return (!isExecuteMethod(invocation) || loginService.isLoginOK()) ? invocation.proceed() : "/login/";
+				return (!isExecuteMethod(invocation) || loginService.isLoginOK()) ? invocation.proceed() : "/SC0101";
 	}
 
 	/**
