@@ -1,7 +1,5 @@
 package com.Easy3.Util;
 
-import javax.annotation.Resource;
-
 import org.aopalliance.intercept.MethodInvocation;
 import org.seasar.framework.aop.interceptors.AbstractInterceptor;
 import org.seasar.struts.annotation.Execute;
@@ -10,12 +8,8 @@ import com.Easy3.service.LoginService;
 
 public class LoginConfirmInterceptor extends AbstractInterceptor{
 
-	/**
-	 *
-	 */
 	private static final long serialVersionUID = 1L;
 
-	@Resource
 	protected LoginService loginService;
 
 	@Override
