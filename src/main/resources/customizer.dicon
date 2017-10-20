@@ -49,7 +49,7 @@
 		<arg>
 			<component class="org.seasar.framework.container.customizer.AspectCustomizer">
 				<property name="interceptorName">"loginConfirmInterceptor"</property>
-                <property name="pointcut">".*"</property>
+                <property name="pointcut">"loginService"</property>
                 <property name="useLookupAdapter">true</property>
 
 				<!-- 処理の対象外ににしたいAction(これ以外が対象になる)-->
