@@ -6,7 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>WISS1 統合メニュー</title>
 </head>
-
 　
   <link rel="stylesheet" type="text/css" href="${f:url('/stylesheets/bootstrap.min.css')}">
   <script src="${f:url('/js/jquery-2.1.1.js')}"></script>
@@ -232,21 +231,22 @@
         <html:img page="/images/easy_logo.jpg" styleClass="img-responsive" alt="easy"></html:img>
       </div>
     </div>
-    <div id="easy_menu">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="panel panel-default">
-            <div class="panel-heading">イベント管理</div>
-            <div class="panel-body">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="SC0301">イベント参照</a></li>
-              </ul>
+    <form method="GET" name="form1">
+      <div id="easy_menu">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">イベント管理</div>
+              <div class="panel-body">
+                <ul class="nav nav-pills nav-stacked">
+                  <li><html:link page="/SC0201/showEvent" onclick="document.form1.submit();">イベント参照</html:link></li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
+	</form>
     <br />
 
     <div class="row">
