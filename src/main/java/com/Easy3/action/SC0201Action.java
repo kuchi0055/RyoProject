@@ -3,7 +3,6 @@ package com.Easy3.action;
 import java.util.List;
 
 import javax.annotation.Resource;
-
 import org.seasar.framework.aop.annotation.RemoveSession;
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
@@ -21,6 +20,8 @@ public class SC0201Action {
     public List<TEvent> eventDataList = null;
     // イベント一覧情報数
     public int eventCount;
+    // エラーメッセージ
+    public String errorMsg;
 
 	@Resource
 	@ActionForm
@@ -94,9 +95,8 @@ public class SC0201Action {
 //            FC0108.setLog(CommonEasyConstants.MESSAGE_KEY_ER0003, CommonEasyConstants.LOG_LEVEL_INFO);
 //
 //            // イベント一覧画面を表示（件数0件）
-//            return ok(SA0201.render(userName, list ,list.size(), errMsg, userAuthFlg));
+        	errorMsg = "イベントは0件です！！";
         	System.out.println("イベントは0件！！！！");
-
         }
 //
 //        // 終了メッセージ
