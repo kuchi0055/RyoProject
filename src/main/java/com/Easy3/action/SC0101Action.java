@@ -221,7 +221,7 @@ public class SC0101Action {
 //        return FU0101.showAnswerInput();
 
     	// 一旦統合メニュー画面へ遷移
-    	return "SC0201.jsp";
+    	return "/SC0201/SC0201.jsp";
     }
 
 

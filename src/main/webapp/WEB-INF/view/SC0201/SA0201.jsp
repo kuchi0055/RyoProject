@@ -94,6 +94,9 @@
 		</div>
 	</div>
 	<br />
+</div>
+</form>
+	<s:form method="POST">
 	<div class="row">
 		<div class="col-md-12" align="right">
 		<span id = "createUser-btn">
@@ -103,11 +106,11 @@
 		<span id = "createUserInfo-btn">
 			<!-- <a href="/userlist" class="btn btn-warning btn-large">ユーザー情報一覧</a>-->
 		</span>
-			<a href="/menu" class="btn btn-primary">メニューへ戻る</a>
+			<s:submit property="backMenu()" styleClass="btn btn-primary" value="メニューへ戻る" />
 		</div>
 	</div>
-</div>
-</form>
+	</s:form>
+
 
 <div class="container">
 	<div class="row">
