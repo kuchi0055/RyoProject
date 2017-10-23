@@ -43,9 +43,11 @@
 			<h3>イベント一覧</h3>
 		</div>
 	</div>
-	<font size="5" color="#ff0000">
-		<b>@error</b>
-	</font>
+	<c:if test="${eventCount == 0}">
+		<font size="5" color="#ff0000">
+			<b>${f:h(errorMsg)}</b>
+		</font>
+	</c:if>
 	<div class="row">
 		<div class="col-md-12" align="right" id="listCount">
 			<label for="event_regist_count" align="right">イベント登録件数 <c:out value="${f:h(eventCount)}"/>件</label>
@@ -96,22 +98,21 @@
 	<br />
 </div>
 </form>
-	<s:form method="POST">
+
+<s:form method="POST" action="/SA0201">
 	<div class="row">
 		<div class="col-md-12" align="right">
 		<span id = "createUser-btn">
 			<!-- <a href="/userinput" class="btn btn-warning btn-large">ユーザー登録</a>-->
 		</span>
-			<a href="/eventinput" class="btn btn-primary">イベント登録</a>
+			<s:submit property="showEventInput" styleClass="btn btn-primary" value="イベント登録" />
 		<span id = "createUserInfo-btn">
 			<!-- <a href="/userlist" class="btn btn-warning btn-large">ユーザー情報一覧</a>-->
 		</span>
-			<s:submit property="backMenu()" styleClass="btn btn-primary" value="メニューへ戻る" />
+			<s:submit property="backMenu" styleClass="btn btn-primary" value="メニューへ戻る" />
 		</div>
 	</div>
-	</s:form>
-
-
+</s:form>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
