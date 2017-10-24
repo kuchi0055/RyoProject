@@ -1,8 +1,13 @@
 package com.Easy3.form;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+
+import com.Easy3.entity.TEmployeeDatas;
 
 public class SA0104Form {
+
+
 
 	public String getEventId() {
 		return eventId;
@@ -121,4 +126,14 @@ public class SA0104Form {
 	 *
 	 */
 	public Timestamp updateDate;
+	/**
+	 *
+	 */
+	public ArrayList<TEmployeeDatas> getUserList() {
+		return userList;
+	}
+	public void setUserList(ArrayList<TEmployeeDatas> userList) {
+		this.userList = userList;
+	}
+	public ArrayList<TEmployeeDatas> userList;
 }

@@ -89,19 +89,20 @@ $(function(){
 				<tbody>
 					<tr>
 						<th class="info" style="width:30%;">イベント名</th>
-						<td style="width:70%;"><input type="text" class="form-control input-sm"  name="event_name" value="@eventname" /></td>
+						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="eventName" value="eventName" /></td>
 					</tr>
 					<tr>
 						<th class="info" style="width:30%;">イベント日時</th>
-						<td style="width:70%;"><input type="text" class="form-control input-sm" name="event_date" id="datetimepicker" value="@eventDateTime" /></td>
+						<td style="width:70%;"><html:text styleClass="form-control input-sm" styleId="datetimepicker" property="eventDatetime" value="eventDatetime" /></td>
 					</tr>
 					<tr>
 						<th class="info" style="width:30%;">イベント場所</th>
-						<td style="width:70%;"><input type="text" class="form-control input-sm" name="event_place" value="@eventPlace" /></td>
+						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="eventPlace" value="eventPlace" /></td>
 					</tr>
 					<tr>
 						<th class="info" style="width:30%;">イベント概要</th>
 						<td style="width:70%;"><input type="text" class="form-control input-sm" name="event_summary" value="@eventSummary" /></td>
+						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="eventSummary" value="eventSummary" /></td>
 					</tr>
 					<tr>
 						<th class="info" style="width:30%;">イベント公開<div class="subtitle">※公開する場合、部課長が確認できます。</div></th>
@@ -124,11 +125,11 @@ $(function(){
 						<th class="info" style="width:30%;">イベント担当者</th>
 						<td>
 							<div class="col-md-12">
-								<select class="form-control" name="event_personnel_Id">
-									@for(datas <- datas){
-										<option value=@datas("user_id") @datas("select_user")>@datas("user_name")</option>
-									}
-								</select>
+								<html:select property="userList" styleClass="form-control">
+									<c:forEach items="${userList}" var="item">
+										<html:option value="${item.userId}">${item.empNmKanjiLastname}</html:option>
+									</c:forEach>
+								</html:select>
 							</div>
 						</td>
 					</tr>
