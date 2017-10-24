@@ -28,7 +28,7 @@ public class EventService {
     /** イベント公開フラグ（DB項目） */
     private static final String EVENT_BOSS = "event_boss";
     /** 画面表示名：イベント作成者 */
-    //private static final String EVENT_CREATE_USER = "作成者／担当者";
+    private static final String EVENT_CREATE_USER = "作成者／担当者";
 
 	@Resource
 	protected TEventDao tEventDao;
@@ -126,11 +126,11 @@ public class EventService {
                     eventstatus = CommonEasyConstants.DISPNAME_EVENTSTATUS_CANCEL;
                 }
 
-//                // イベント担当状況を取得（権限"管理者"・作成者・担当者の場合に表示）
-//                if (userAuthFlg.equals(CommonEasyConstants.AUTHORITY_SUPER_USER)
-//                    || data.userId.equals(loginUserId) || data.eventResponsibleUser.equals(loginUserId)) {
-//                    eventUser = EVENT_CREATE_USER;
-//                }
+                // イベント担当状況を取得（権限"管理者"・作成者・担当者の場合に表示）
+                if (userAuthFlg.equals(CommonEasyConstants.AUTHORITY_SUPER_USER)
+                    || data.userId.equals(loginUserId)/* || data.eventResponsibleUser.equals(loginUserId)*/) {
+                    eventUser = EVENT_CREATE_USER;
+                }
 //
 //                // イベント公開フラグの取得（区分値→表示名の変換 権限"管理者"・作成者・担当者の場合に表示）
 //                if (userAuthFlg.equals(CommonEasyConstants.AUTHORITY_SUPER_USER)

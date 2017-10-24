@@ -81,13 +81,10 @@
 							<td>${f:h(item.createUser)}</td>
 							<td>${f:h(item.createUser)}</td>
 							<td>
-							@datas("event_user") match {
-		  	        			case "" => {}
-		  	        			case "作成者／担当者" => {
-									<a href="/eventUpdate?eventid=@datas("event_id") class="btn btn-primary btn-sm">変更</a>&nbsp;&nbsp;
-									<a href="/eventDeleteConfirm?eventid=@datas("event_id") class="btn btn-primary btn-sm" >削除</a>
-								}
-							}
+							<c:if test="${item.createUser != '' }">
+								<a href="/eventUpdate?eventid=@datas('event_id')" class="btn btn-primary btn-sm">変更</a>&nbsp;&nbsp;
+								<a href="/eventDeleteConfirm?eventid=@datas('event_id')" class="btn btn-primary btn-sm" >削除</a>
+							</c:if>
 						</tr>
 					</c:forEach>
 					</tbody>
