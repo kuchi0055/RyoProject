@@ -1,17 +1,23 @@
 package com.Easy3.action;
 
+import java.util.ArrayList;
+
 import javax.annotation.Resource;
 
 import org.seasar.struts.annotation.ActionForm;
 import org.seasar.struts.annotation.Execute;
 
+import com.Easy3.entity.TEmployeeDatas;
 import com.Easy3.form.SA0104Form;
+import com.Easy3.service.TEmployeeDatasService;
 
 public class SA0201Action {
 
 	@ActionForm
 	@Resource
 	protected SA0104Form sA0104Form;
+
+	public TEmployeeDatasService tEmployeeDatasService;
 
 	@Execute(validator = false)
     public String index(){
@@ -20,6 +26,16 @@ public class SA0201Action {
 
 	@Execute(validator = false,urlPattern="SA0104")
     public String showEventInput(){
+
+		ArrayList<TEmployeeDatas> userList = new ArrayList<TEmployeeDatas>();
+
+		TEmployeeDatas[] tEmployeeDatasList = tEmployeeDatasService.findAll();
+		for(TEmployeeDatas listdata : tEmployeeDatasList){
+			userList.add(listdata);
+		}
+
+		sA0104Form.setUserList(userList);
+
 		return "/SA0104/SA0104.jsp";
 	}
 

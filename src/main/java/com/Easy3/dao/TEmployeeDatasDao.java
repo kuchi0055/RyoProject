@@ -10,7 +10,7 @@ public interface TEmployeeDatasDao {
 
 	public static final Class<TEmployeeDatas> BEAN = TEmployeeDatas.class;
 
-//	public TEmployeeDatas[] selectAll();
+	public TEmployeeDatas[] selectAll();
 
 	@Arguments("userId")
 	public TEmployeeDatas getSelectTEmployeeDatas(String userId);
