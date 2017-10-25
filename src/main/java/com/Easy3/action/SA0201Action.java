@@ -19,6 +19,8 @@ public class SA0201Action {
 
 	public TEmployeeDatasService tEmployeeDatasService;
 
+	public String errorMsg;
+
 	@Execute(validator = false)
     public String index(){
 		return "/SA0104/SA0104.jsp";
@@ -33,6 +35,8 @@ public class SA0201Action {
 		for(TEmployeeDatas listdata : tEmployeeDatasList){
 			userList.add(listdata);
 		}
+		// エラーメッセージはなし。
+		errorMsg = "";
 
 		sA0104Form.setUserList(userList);
 

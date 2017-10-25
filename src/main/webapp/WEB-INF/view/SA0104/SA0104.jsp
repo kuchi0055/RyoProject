@@ -78,9 +78,11 @@ $(function(){
 		</div>
 	</div>
 	<div class="alert alert-info">以下の内容をご入力ください。</div>
-	<font size="5" color="#ff0000">
-		<b>@error</b>
-	</font>
+	<c:if test="">
+		<font size="5" color="#ff0000">
+			<b>${f:h(errorMsg)}</b>
+		</font>
+	</c:if>
 
 	<s:form method="POST" action="/SA0201">
 	<div class="row">
@@ -89,36 +91,27 @@ $(function(){
 				<tbody>
 					<tr>
 						<th class="info" style="width:30%;">イベント名</th>
-						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="eventName" value="eventName" /></td>
+						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="${eventName}" value="${eventName}" /></td>
 					</tr>
 					<tr>
 						<th class="info" style="width:30%;">イベント日時</th>
-						<td style="width:70%;"><html:text styleClass="form-control input-sm" styleId="datetimepicker" property="eventDatetime" value="eventDatetime" /></td>
+						<td style="width:70%;"><html:text styleClass="form-control input-sm" styleId="datetimepicker" property="${eventDatetime}" value="${eventDatetime}" /></td>
 					</tr>
 					<tr>
 						<th class="info" style="width:30%;">イベント場所</th>
-						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="eventPlace" value="eventPlace" /></td>
+						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="${eventPlace}" value="${eventPlace}" /></td>
 					</tr>
 					<tr>
 						<th class="info" style="width:30%;">イベント概要</th>
-						<td style="width:70%;"><input type="text" class="form-control input-sm" name="event_summary" value="@eventSummary" /></td>
-						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="eventSummary" value="eventSummary" /></td>
+						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="${eventSummary}" value="${eventSummary}" /></td>
 					</tr>
 					<tr>
 						<th class="info" style="width:30%;">イベント公開<div class="subtitle">※公開する場合、部課長が確認できます。</div></th>
 						<td>
 						<div class="col-md-12">
-						@eventPublicFlg match {
-						case "0" => {
-								<label><input type="radio" class="form-control" name="event_public_flg" style="width:20px;height:20px" value = "0" checked /></label><label style="width:70px;">公開する</label>
-								<label><input type="radio" class="form-control" name="event_public_flg" style="width:20px;height:20px" value = "1"/></label><label style="width:70px;">公開しない</label>
-							}
-						case "1" => {
-								<label><input type="radio" class="form-control" name="event_public_flg" style="width:20px;height:20px" value = "0" /></label><label style="width:70px;">公開する</label>
-								<label><input type="radio" class="form-control" name="event_public_flg" style="width:20px;height:20px" value = "1" checked /></label><label style="width:70px;">公開しない</label>
-							}
-						}
 						</div>
+							<label><html:radio styleClass="form-control" style="width:20px;height:20px" property="eventSummary" value="0"></html:radio></label><label style="width:70px;">公開する</label>
+							<label><html:radio styleClass="form-control" style="width:20px;height:20px" property="eventSummary" value="1"></html:radio></label><label style="width:70px;">公開する</label>
 						</td>
 					</tr>
 					<tr>
@@ -135,11 +128,11 @@ $(function(){
 					</tr>
 					<tr>
 						<th class="info" style="width:30%;">返信期限<div class="subtitle">※回答を希望する日です。</div></th>
-						<td style="width:70%;"><input type="text" data-format="yyyy-MM-dd" class="form-control input-sm" name="attendance_deadline_datetime" id="datetimepicker2" value="@attendanceDeadlineDatetime" /></td>
+						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="${attendance_deadline_datetime}" styleId="datetimepicker2" value="${attendance_deadline_datetime}" /></td>
 					</tr>
 					<tr>
 						<th class="info" style="width:30%;">回答締切日<div class="subtitle">※締切日を過ぎると、回答および回答変更ができません。</div></th>
-						<td style="width:70%;"><input type="text" data-format="yyyy-MM-dd" class="form-control input-sm" name="reply_deadline_datetime" id="datetimepicker3" value="@replyDeadlineDatetime" /></td>
+						<td style="width:70%;"><html:text styleClass="form-control input-sm" property="${reply_deadline_datetime}" styleId="datetimepicker3" value="${reply_deadline_datetime}" /></td>
 					</tr>
 
 				</tbody>
