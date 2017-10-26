@@ -3,11 +3,11 @@ package com.Easy3.form;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
+import org.apache.struts.action.ActionMessages;
+
 import com.Easy3.entity.TEmployeeDatas;
 
 public class SA0104Form {
-
-
 
 	public String getEventId() {
 		return eventId;
@@ -136,4 +136,11 @@ public class SA0104Form {
 		this.userList = userList;
 	}
 	public ArrayList<TEmployeeDatas> userList;
+
+
+	public ActionMessages validate(){
+
+		ActionMessages errMsg = new ActionMessages();
+		return errMsg;
+	}
 }

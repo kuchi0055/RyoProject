@@ -84,7 +84,7 @@ $(function(){
 		</font>
 	</c:if>
 
-	<s:form method="POST" action="/SA0201">
+	<s:form method="POST" action="/SA0104">
 	<div class="row">
 		<div class="col-md-12">
 			<table class="table table-condensed table-bordered table-hover">
@@ -142,7 +142,7 @@ $(function(){
 
 	<div class="row">
 		<div class="col-md-12" align="right">
-			<input type="submit" class="btn btn-primary" value="確認" />
+			<s:submit property="inputEvent" styleClass="btn btn-primary" value="確認" />
 			<html:button property="" onclick="history.back();" styleClass="btn btn-primary" value="キャンセル" />
 		</div>
 	</div>
